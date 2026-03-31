@@ -63,7 +63,7 @@ const ProductDetail = () => {
       navigate("/auth");
       return;
     }
-    toast.success("Booking feature coming soon!");
+    setBookingOpen(true);
   };
 
   if (loading) {
