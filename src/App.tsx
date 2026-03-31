@@ -9,6 +9,7 @@ import Browse from "./pages/Browse";
 import ProductDetail from "./pages/ProductDetail";
 import ListItem from "./pages/ListItem";
 import Auth from "./pages/Auth";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
