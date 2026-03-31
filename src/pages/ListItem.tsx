@@ -99,6 +99,7 @@ const ListItem = () => {
         condition: formData.condition,
         location: formData.location,
         image_url: imageUrl,
+        is_featured: isFeatured,
       });
 
       if (error) throw error;
