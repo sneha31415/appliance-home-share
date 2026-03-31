@@ -164,6 +164,15 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+
+      {user && product && (
+        <BookingDialog
+          open={bookingOpen}
+          onOpenChange={setBookingOpen}
+          product={product}
+          userId={user.id}
+        />
+      )}
     </div>
   );
 };
