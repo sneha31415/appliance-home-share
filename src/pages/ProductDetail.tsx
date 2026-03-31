@@ -27,6 +27,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<any>(null);
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   useEffect(() => {
     checkUser();
