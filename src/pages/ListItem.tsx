@@ -17,6 +17,7 @@ const ListItem = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
   
+  const [isFeatured, setIsFeatured] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
