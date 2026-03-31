@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
@@ -56,92 +55,88 @@ const Browse = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-12">
-        <div className="mb-12">
-          <h1 className="text-4xl font-semibold mb-4 text-foreground">Browse Items</h1>
-          <div className="relative max-w-xl">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+      <div className="container mx-auto px-4 py-10">
+        <div className="mb-10">
+          <h1 className="text-2xl font-semibold mb-1 text-foreground tracking-tight">Browse Items</h1>
+          <p className="text-[13px] text-muted-foreground mb-5">Find furniture and appliances available for rent.</p>
+          <div className="relative max-w-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Search by name, category, or location..."
+              placeholder="Search by name, category, or location…"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-9 h-9 text-[13px]"
             />
           </div>
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[...Array(6)].map((_, i) => (
-              <Card key={i} className="animate-pulse">
-                <div className="aspect-video bg-muted" />
-                <CardContent className="p-6">
-                  <div className="h-6 bg-muted rounded mb-2" />
-                  <div className="h-4 bg-muted rounded w-2/3" />
-                </CardContent>
-              </Card>
+              <div key={i} className="animate-pulse border border-border rounded-lg overflow-hidden">
+                <div className="aspect-[4/3] bg-secondary" />
+                <div className="p-4 space-y-2">
+                  <div className="h-4 bg-secondary rounded w-2/3" />
+                  <div className="h-3 bg-secondary rounded w-1/2" />
+                </div>
+              </div>
             ))}
           </div>
         ) : filteredProducts.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-muted-foreground text-lg">No items found</p>
+          <div className="text-center py-20">
+            <p className="text-sm text-muted-foreground">No items found</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredProducts.map((product) => (
-              <Card
+              <div
                 key={product.id}
-                className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
+                className="group border border-border rounded-lg overflow-hidden cursor-pointer hover:border-foreground/20 transition-colors"
                 onClick={() => navigate(`/product/${product.id}`)}
               >
-                <div className="aspect-video bg-muted overflow-hidden relative">
+                <div className="aspect-[4/3] bg-secondary overflow-hidden relative">
                   {product.is_featured && (
-                    <div className="absolute top-2 left-2 z-10 bg-amber-500 text-white rounded-full p-1.5 shadow-md" title="Featured Listing">
-                      <Star className="h-3.5 w-3.5 fill-white" />
+                    <div className="absolute top-2 left-2 z-10 bg-[hsl(var(--featured))] text-white rounded-full p-1 shadow-sm" title="Featured">
+                      <Star className="h-3 w-3 fill-white" />
                     </div>
                   )}
                   {product.image_url ? (
                     <img
                       src={product.image_url}
                       alt={product.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                    <div className="w-full h-full flex items-center justify-center text-muted-foreground text-xs">
                       No Image
                     </div>
                   )}
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-accent transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
-                    {product.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <MapPin className="h-4 w-4" />
-                    <span>{product.location}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-2xl font-semibold text-foreground">
-                        ${product.price_per_day}
-                        <span className="text-sm font-normal text-muted-foreground">/day</span>
-                      </p>
-                    </div>
-                    <span className="text-xs px-3 py-1 bg-secondary rounded-full text-secondary-foreground">
+                <div className="p-4">
+                  <div className="flex items-start justify-between gap-2 mb-1">
+                    <h3 className="text-sm font-medium text-foreground leading-snug">
+                      {product.title}
+                    </h3>
+                    <span className="text-[11px] px-2 py-0.5 bg-secondary rounded-full text-muted-foreground flex-shrink-0">
                       {product.condition}
                     </span>
                   </div>
-                </CardContent>
-                <CardFooter className="p-6 pt-0">
-                  <Button variant="default" className="w-full">
-                    View Details
-                  </Button>
-                </CardFooter>
-              </Card>
+                  <div className="flex items-center gap-1 text-[12px] text-muted-foreground mb-3">
+                    <MapPin className="h-3 w-3" />
+                    <span>{product.location}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold text-foreground">
+                      ${product.price_per_day}
+                      <span className="text-[11px] font-normal text-muted-foreground">/day</span>
+                    </p>
+                    <Button variant="outline" size="sm" className="h-7 text-[12px] px-3">
+                      View
+                    </Button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         )}
