@@ -71,6 +71,7 @@ export type Database = {
           id: string
           image_url: string | null
           is_available: boolean | null
+          is_featured: boolean
           location: string
           owner_id: string
           price_per_day: number
@@ -87,6 +88,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           is_available?: boolean | null
+          is_featured?: boolean
           location: string
           owner_id: string
           price_per_day: number
@@ -103,6 +105,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           is_available?: boolean | null
+          is_featured?: boolean
           location?: string
           owner_id?: string
           price_per_day?: number

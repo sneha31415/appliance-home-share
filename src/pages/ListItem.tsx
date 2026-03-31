@@ -8,7 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import { Upload, Loader2 } from "lucide-react";
+import { Upload, Loader2, Star } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const ListItem = () => {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const ListItem = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
   
+  const [isFeatured, setIsFeatured] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -97,6 +99,7 @@ const ListItem = () => {
         condition: formData.condition,
         location: formData.location,
         image_url: imageUrl,
+        is_featured: isFeatured,
       });
 
       if (error) throw error;
@@ -264,6 +267,25 @@ const ListItem = () => {
                     onChange={(e) => setFormData({ ...formData, price_per_month: e.target.value })}
                     placeholder="0.00"
                   />
+                </div>
+              </div>
+
+              <div className="border border-border rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="featured"
+                    checked={isFeatured}
+                    onCheckedChange={(checked) => setIsFeatured(checked === true)}
+                  />
+                  <div className="flex-1">
+                    <Label htmlFor="featured" className="flex items-center gap-2 cursor-pointer">
+                      <Star className="h-4 w-4 text-amber-500 fill-amber-500" />
+                      Paid Listing — ₹200
+                    </Label>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Your item will appear at the top of browse results, making it more visible to potential renters.
+                    </p>
+                  </div>
                 </div>
               </div>
 

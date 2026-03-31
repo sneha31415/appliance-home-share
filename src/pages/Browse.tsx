@@ -4,7 +4,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
-import { Search, MapPin } from "lucide-react";
+import { Search, MapPin, Star } from "lucide-react";
 import { toast } from "sonner";
 
 interface Product {
@@ -16,6 +16,7 @@ interface Product {
   location: string;
   image_url: string | null;
   condition: string;
+  is_featured: boolean;
 }
 
 const Browse = () => {
@@ -45,11 +46,13 @@ const Browse = () => {
     }
   };
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.location.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredProducts = products
+    .filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.location.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => (a.is_featured === b.is_featured ? 0 : a.is_featured ? -1 : 1));
 
   return (
     <div className="min-h-screen bg-background">
@@ -92,7 +95,12 @@ const Browse = () => {
                 className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
                 onClick={() => navigate(`/product/${product.id}`)}
               >
-                <div className="aspect-video bg-muted overflow-hidden">
+                <div className="aspect-video bg-muted overflow-hidden relative">
+                  {product.is_featured && (
+                    <div className="absolute top-2 left-2 z-10 bg-amber-500 text-white rounded-full p-1.5 shadow-md" title="Featured Listing">
+                      <Star className="h-3.5 w-3.5 fill-white" />
+                    </div>
+                  )}
                   {product.image_url ? (
                     <img
                       src={product.image_url}
