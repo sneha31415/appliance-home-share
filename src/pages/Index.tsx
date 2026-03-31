@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Package, Search, Upload, Shield } from "lucide-react";
+import { ArrowRight, Search, Package, Shield } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Index = () => {
@@ -9,31 +8,33 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background z-10" />
-        <img
-          src={heroImage}
-          alt="Modern furniture and appliances"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
-        />
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Modern furniture and appliances"
+            className="w-full h-full object-cover opacity-[0.07]"
+          />
+        </div>
         
-        <div className="relative z-20 container mx-auto px-4 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-semibold mb-6 text-foreground leading-tight">
-              Rent Quality<br />Furniture & Appliances
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
-              Discover a marketplace where you can rent furniture and appliances from verified owners. 
-              Flexible, affordable, sustainable.
+        <div className="relative container mx-auto px-4 py-24 md:py-36">
+          <div className="max-w-2xl">
+            <p className="text-[13px] font-medium text-muted-foreground tracking-wide uppercase mb-4">
+              Furniture & Appliance Rental
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={() => navigate("/browse")} className="text-base">
-                <Search className="mr-2 h-5 w-5" />
+            <h1 className="text-4xl md:text-5xl font-semibold text-foreground leading-[1.1] tracking-tight mb-5">
+              Rent quality items from people near you.
+            </h1>
+            <p className="text-base text-muted-foreground mb-8 max-w-lg leading-relaxed">
+              A marketplace for renting furniture and appliances from verified owners. Flexible pricing, no long-term commitments.
+            </p>
+            <div className="flex gap-3">
+              <Button onClick={() => navigate("/browse")} className="h-9 px-4 text-[13px]">
                 Browse Items
+                <ArrowRight className="ml-2 h-3.5 w-3.5" />
               </Button>
-              <Button size="lg" variant="outline" onClick={() => navigate("/list-item")} className="text-base">
-                <Upload className="mr-2 h-5 w-5" />
+              <Button variant="outline" onClick={() => navigate("/list-item")} className="h-9 px-4 text-[13px]">
                 List Your Item
               </Button>
             </div>
@@ -41,79 +42,47 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-muted/30">
+      {/* How It Works */}
+      <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground">How It Works</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Simple steps to start renting or earning from your items
-            </p>
+          <div className="mb-14">
+            <p className="text-[13px] font-medium text-muted-foreground tracking-wide uppercase mb-2">How it works</p>
+            <h2 className="text-2xl font-semibold text-foreground tracking-tight">Three simple steps</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-8">
-                <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                  <Search className="h-6 w-6 text-accent" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border rounded-lg overflow-hidden border border-border">
+            {[
+              { icon: Search, title: "Browse & Discover", desc: "Explore quality furniture and appliances available for rent in your area." },
+              { icon: Package, title: "Book Instantly", desc: "Choose your rental period and book with a few clicks. Flexible daily, weekly, or monthly pricing." },
+              { icon: Shield, title: "Safe & Secure", desc: "Verified users and quality-checked items. All transactions are protected." },
+            ].map((item, i) => (
+              <div key={i} className="bg-background p-8">
+                <div className="h-9 w-9 rounded-md border border-border flex items-center justify-center mb-5">
+                  <item.icon className="h-4 w-4 text-foreground" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">Browse & Discover</h3>
-                <p className="text-muted-foreground">
-                  Explore a wide range of quality furniture and appliances available for rent in your area
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-8">
-                <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                  <Package className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">Book Instantly</h3>
-                <p className="text-muted-foreground">
-                  Choose your rental period and book items with just a few clicks. Flexible pricing options available
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg">
-              <CardContent className="p-8">
-                <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                  <Shield className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">Safe & Secure</h3>
-                <p className="text-muted-foreground">
-                  All transactions are secure. Verified users and quality-checked items ensure peace of mind
-                </p>
-              </CardContent>
-            </Card>
+                <h3 className="text-sm font-semibold mb-2 text-foreground">{item.title}</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <Card className="bg-primary text-primary-foreground border-none">
-            <CardContent className="p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-                Have Items to Rent Out?
-              </h2>
-              <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                Turn your unused furniture and appliances into a steady income stream. 
-                List your items today and start earning.
-              </p>
-              <Button
-                size="lg"
-                variant="secondary"
-                onClick={() => navigate("/list-item")}
-                className="text-base"
-              >
-                <Upload className="mr-2 h-5 w-5" />
-                Start Listing
-              </Button>
-            </CardContent>
-          </Card>
+          <div className="rounded-lg border border-border p-12 text-center">
+            <h2 className="text-2xl font-semibold mb-3 text-foreground tracking-tight">
+              Have items to rent out?
+            </h2>
+            <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
+              Turn unused furniture and appliances into steady income. List your items and start earning today.
+            </p>
+            <Button onClick={() => navigate("/list-item")} className="h-9 px-4 text-[13px]">
+              Start Listing
+              <ArrowRight className="ml-2 h-3.5 w-3.5" />
+            </Button>
+          </div>
         </div>
       </section>
     </div>
