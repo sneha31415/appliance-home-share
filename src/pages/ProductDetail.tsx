@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Calendar, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
+import BookingDialog from "@/components/BookingDialog";
 
 interface Product {
   id: string;
@@ -26,6 +27,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<any>(null);
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   useEffect(() => {
     checkUser();
@@ -61,7 +63,7 @@ const ProductDetail = () => {
       navigate("/auth");
       return;
     }
-    toast.success("Booking feature coming soon!");
+    setBookingOpen(true);
   };
 
   if (loading) {
@@ -162,6 +164,15 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+
+      {user && product && (
+        <BookingDialog
+          open={bookingOpen}
+          onOpenChange={setBookingOpen}
+          product={product}
+          userId={user.id}
+        />
+      )}
     </div>
   );
 };
