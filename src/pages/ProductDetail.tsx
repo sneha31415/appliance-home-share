@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Calendar, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
+import BookingDialog from "@/components/BookingDialog";
 
 interface Product {
   id: string;
