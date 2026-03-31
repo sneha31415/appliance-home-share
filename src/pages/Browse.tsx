@@ -16,6 +16,7 @@ interface Product {
   location: string;
   image_url: string | null;
   condition: string;
+  is_featured: boolean;
 }
 
 const Browse = () => {
