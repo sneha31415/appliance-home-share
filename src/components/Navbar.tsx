@@ -49,6 +49,9 @@ const Navbar = () => {
                 <Link to="/list-item" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
                   List Item
                 </Link>
+                <Link to="/profile" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
+                  My Profile
+                </Link>
                 <Button variant="ghost" size="sm" onClick={handleSignOut}>
                   <LogOut className="h-4 w-4 mr-2" />
                   Sign Out
