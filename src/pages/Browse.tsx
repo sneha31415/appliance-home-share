@@ -95,7 +95,12 @@ const Browse = () => {
                 className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
                 onClick={() => navigate(`/product/${product.id}`)}
               >
-                <div className="aspect-video bg-muted overflow-hidden">
+                <div className="aspect-video bg-muted overflow-hidden relative">
+                  {product.is_featured && (
+                    <div className="absolute top-2 left-2 z-10 bg-amber-500 text-white rounded-full p-1.5 shadow-md" title="Featured Listing">
+                      <Star className="h-3.5 w-3.5 fill-white" />
+                    </div>
+                  )}
                   {product.image_url ? (
                     <img
                       src={product.image_url}

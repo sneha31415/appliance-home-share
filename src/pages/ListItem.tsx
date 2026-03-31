@@ -270,6 +270,25 @@ const ListItem = () => {
                 </div>
               </div>
 
+              <div className="border border-border rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="featured"
+                    checked={isFeatured}
+                    onCheckedChange={(checked) => setIsFeatured(checked === true)}
+                  />
+                  <div className="flex-1">
+                    <Label htmlFor="featured" className="flex items-center gap-2 cursor-pointer">
+                      <Star className="h-4 w-4 text-amber-500 fill-amber-500" />
+                      Paid Listing — ₹200
+                    </Label>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Your item will appear at the top of browse results, making it more visible to potential renters.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <Button type="submit" className="w-full" disabled={loading}>
                 {loading ? (
                   <>
