@@ -60,7 +60,7 @@ const Index = () => {
                 <div className="h-9 w-9 rounded-md border border-border flex items-center justify-center mb-5">
                   <item.icon className="h-4 w-4 text-foreground" />
                 </div>
-                <h3 className="text-sm font-semibold mb-2 text-foreground">{item.title}</h3>
+                <h2 className="text-sm font-semibold mb-2 text-foreground">{item.title}</h2>
                 <p className="text-[13px] text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}
