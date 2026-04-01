@@ -123,7 +123,7 @@ const BookingDialog = ({ open, onOpenChange, product, userId }: BookingDialogPro
                       <RadioGroupItem value={p.value} />
                       <span className="font-medium">{p.label}</span>
                     </div>
-                    <span className="font-semibold">${p.price}{p.unit}</span>
+                    <span className="font-semibold">₹{p.price}{p.unit}</span>
                   </label>
                 ))}
               </RadioGroup>
@@ -190,13 +190,13 @@ const BookingDialog = ({ open, onOpenChange, product, userId }: BookingDialogPro
                   <span>Plan</span><span className="capitalize">{plan}ly</span>
                 </div>
                 <div className="border-t border-border pt-2 flex justify-between font-semibold text-foreground">
-                  <span>Total</span><span>${totalPrice.toFixed(2)}</span>
+                  <span>Total</span><span>₹{totalPrice.toFixed(2)}</span>
                 </div>
               </div>
             )}
 
             <Button className="w-full h-9 text-[13px]" onClick={handleSubmit} disabled={submitting}>
-              {submitting ? <><Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" /> Processing…</> : `Confirm — $${totalPrice.toFixed(2)}`}
+              {submitting ? <><Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" /> Processing…</> : `Confirm — ₹${totalPrice.toFixed(2)}`}
             </Button>
           </div>
         )}

@@ -128,7 +128,7 @@ const Browse = () => {
                   </div>
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-semibold text-foreground">
-                      ${product.price_per_day}
+                      ₹{product.price_per_day}
                       <span className="text-[11px] font-normal text-muted-foreground">/day</span>
                     </p>
                     <Button variant="outline" size="sm" className="h-7 text-[12px] px-3">
