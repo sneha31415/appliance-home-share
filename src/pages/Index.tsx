@@ -56,7 +56,7 @@ const Index = () => {
               { icon: Package, title: "Book Instantly", desc: "Choose your rental period and book with a few clicks. Flexible daily, weekly, or monthly pricing." },
               { icon: Shield, title: "Safe & Secure", desc: "Verified users and quality-checked items. All transactions are protected." },
             ].map((item, i) => (
-              <div key={i} className="bg-background p-8">
+              <div key={i} className="p-8 shadow-xl opacity-100 border-[#d5bebe] bg-[#e6e6e6]">
                 <div className="h-9 w-9 rounded-md border border-border flex items-center justify-center mb-5">
                   <item.icon className="h-4 w-4 text-foreground" />
                 </div>
