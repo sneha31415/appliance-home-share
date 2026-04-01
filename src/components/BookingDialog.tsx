@@ -123,7 +123,7 @@ const BookingDialog = ({ open, onOpenChange, product, userId }: BookingDialogPro
                       <RadioGroupItem value={p.value} />
                       <span className="font-medium">{p.label}</span>
                     </div>
-                    <span className="font-semibold">${p.price}{p.unit}</span>
+                    <span className="font-semibold">₹{p.price}{p.unit}</span>
                   </label>
                 ))}
               </RadioGroup>
