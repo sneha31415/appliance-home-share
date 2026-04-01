@@ -39,19 +39,19 @@ const Navbar = () => {
           </Link>
 
           <div className="flex items-center gap-1">
-            <Link to="/browse" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors px-3 py-1.5 rounded-md hover:bg-secondary">
+            <Link to="/browse" className="text-[13px] transition-colors px-3 py-1.5 rounded-md bg-primary-foreground font-normal text-primary">
               Browse
             </Link>
             
             {user ? (
               <>
-                <Link to="/list-item" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors px-3 py-1.5 rounded-md hover:bg-secondary">
+                <Link to="/list-item" className="text-[13px] transition-colors px-3 py-1.5 rounded-md hover:bg-secondary font-normal text-primary">
                   List Item
                 </Link>
-                <Link to="/profile" className="text-[13px] text-muted-foreground hover:text-foreground transition-colors px-3 py-1.5 rounded-md hover:bg-secondary">
+                <Link to="/profile" className="text-[13px] transition-colors px-3 py-1.5 rounded-md hover:bg-secondary text-primary">
                   Profile
                 </Link>
-                <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-[13px] text-muted-foreground hover:text-foreground h-8 px-3">
+                <Button variant="ghost" size="sm" onClick={handleSignOut} className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent rounded-md text-[13px] h-8 px-3 text-primary">
                   <LogOut className="h-3.5 w-3.5 mr-1.5" />
                   Sign Out
                 </Button>

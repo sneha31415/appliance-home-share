@@ -18,7 +18,7 @@ const Index = () => {
           />
         </div>
         
-        <div className="relative container mx-auto px-4 py-24 md:py-36">
+        <div className="relative container mx-auto px-4 py-24 md:py-36 border-primary-foreground">
           <div className="max-w-2xl">
             <p className="text-[13px] font-medium text-muted-foreground tracking-wide uppercase mb-4">
               Furniture & Appliance Rental
@@ -43,10 +43,10 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 border-b border-border">
+      <section className="py-20 bg-white border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-14">
-            <p className="text-[13px] font-medium text-muted-foreground tracking-wide uppercase mb-2">How it works</p>
+            <p className="font-medium text-muted-foreground tracking-wide uppercase mb-2 text-5xl shadow-xl border-primary">How it works</p>
             <h2 className="text-2xl font-semibold text-foreground tracking-tight">Three simple steps</h2>
           </div>
 
@@ -69,9 +69,9 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="rounded-lg border border-border p-12 text-center">
+          <div className="rounded-lg border border-border p-12 text-center bg-[#e6e6e6]">
             <h2 className="text-2xl font-semibold mb-3 text-foreground tracking-tight">
               Have items to rent out?
             </h2>
