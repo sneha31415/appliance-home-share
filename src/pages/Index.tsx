@@ -14,7 +14,7 @@ const Index = () => {
           <img
             src={heroImage}
             alt="Modern furniture and appliances"
-            className="w-full h-full object-cover opacity-[0.07]"
+            className="w-full h-full object-cover opacity-[0.15]"
           />
         </div>
         
