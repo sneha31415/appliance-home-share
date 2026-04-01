@@ -190,7 +190,7 @@ const BookingDialog = ({ open, onOpenChange, product, userId }: BookingDialogPro
                   <span>Plan</span><span className="capitalize">{plan}ly</span>
                 </div>
                 <div className="border-t border-border pt-2 flex justify-between font-semibold text-foreground">
-                  <span>Total</span><span>${totalPrice.toFixed(2)}</span>
+                  <span>Total</span><span>₹{totalPrice.toFixed(2)}</span>
                 </div>
               </div>
             )}
