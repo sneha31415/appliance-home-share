@@ -46,7 +46,7 @@ const Index = () => {
       <section className="py-20 bg-white border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-14">
-            <p className="font-medium text-muted-foreground tracking-wide uppercase mb-2 text-5xl shadow-xl border-primary">How it works</p>
+            <p className="font-medium text-muted-foreground tracking-wide uppercase mb-2 text-5xl border-primary shadow-none">How it works</p>
             <h2 className="text-2xl font-semibold text-foreground tracking-tight">Three simple steps</h2>
           </div>
 
