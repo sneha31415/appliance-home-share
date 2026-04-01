@@ -196,7 +196,7 @@ const BookingDialog = ({ open, onOpenChange, product, userId }: BookingDialogPro
             )}
 
             <Button className="w-full h-9 text-[13px]" onClick={handleSubmit} disabled={submitting}>
-              {submitting ? <><Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" /> Processing…</> : `Confirm — $${totalPrice.toFixed(2)}`}
+              {submitting ? <><Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" /> Processing…</> : `Confirm — ₹${totalPrice.toFixed(2)}`}
             </Button>
           </div>
         )}

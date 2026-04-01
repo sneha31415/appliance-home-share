@@ -124,18 +124,18 @@ const ProductDetail = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-[13px] text-muted-foreground">Per Day</span>
-                  <span className="text-lg font-semibold text-foreground">${product.price_per_day}</span>
+                  <span className="text-lg font-semibold text-foreground">₹{product.price_per_day}</span>
                 </div>
                 {product.price_per_week && (
                   <div className="flex justify-between items-center pt-3 border-t border-border">
                     <span className="text-[13px] text-muted-foreground">Per Week</span>
-                    <span className="text-lg font-semibold text-foreground">${product.price_per_week}</span>
+                    <span className="text-lg font-semibold text-foreground">₹{product.price_per_week}</span>
                   </div>
                 )}
                 {product.price_per_month && (
                   <div className="flex justify-between items-center pt-3 border-t border-border">
                     <span className="text-[13px] text-muted-foreground">Per Month</span>
-                    <span className="text-lg font-semibold text-foreground">${product.price_per_month}</span>
+                    <span className="text-lg font-semibold text-foreground">₹{product.price_per_month}</span>
                   </div>
                 )}
               </div>

@@ -133,7 +133,7 @@ const Profile = () => {
 
                     {/* Price & Action */}
                     <div className="flex items-center gap-3 flex-shrink-0">
-                      <span className="text-sm font-semibold text-foreground">${booking.total_price}</span>
+                      <span className="text-sm font-semibold text-foreground">₹{booking.total_price}</span>
                       {booking.product && (
                         <button
                           onClick={() => navigate(`/product/${booking.product!.id}`)}
